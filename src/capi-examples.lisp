@@ -15,7 +15,16 @@
 
 (setq button
       (make-instance 'push-button
-                     :data "Buttón"
+                     :data "Button"
+                     :background :ghostwhite
                      :callback #'red-alert))
 
 ;; (contain button)
+
+(defvar tpane
+  (make-instance 'title-pane
+                 :text "GREETINGS, HUMANS"
+                 :font (gp:make-font-description
+                        :family "Ubuntu"
+                        :size 24
+                        :weight :medium)))
