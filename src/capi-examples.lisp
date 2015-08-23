@@ -11,15 +11,20 @@
 ;; (display interface)
 
 (defun red-alert (&rest args)
-  (display-message "red alert"))
+  (display-message "red alert")
+  (apply-in-pane-process button
+                         #'(setf titled-object-title)
+                         "Missiles have been fired" button))
 
 (setq button
       (make-instance 'push-button
-                     :data "Button"
+                     :data "Push Me"
                      :background :ghostwhite
                      ;; mnemonic is the alt+<mnemonic-char> that can be pressed
                      ;; to activate the thinger.
-                     :mnemonic #\B
+                     :mnemonic #\P
+                     :title "Launch the missiles"
+                     :title-position :top
                      :callback #'red-alert))
 
 ;; (contain button)
